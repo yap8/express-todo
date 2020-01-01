@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+  <title>Todo list</title>
+</head>
+<body>
+
+  <form action="/" method="POST">
+    <input type="text" name="title">
+    <button type="submit">Submit</button>
+  </form>
+
+  <ul>
+    <% result.forEach(item => { %>
+      <li>
+        <form method="POST" action="/<%= item.id %>">
+          <input type="text" name="title" value="<%= item.title %>">
+          <button type="submit" name="action" value="update">Update</button>
+          <button type="submit" name="action" value="delete">Delete</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+  
+</body>
+</html>
